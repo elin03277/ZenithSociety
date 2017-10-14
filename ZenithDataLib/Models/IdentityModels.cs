@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace ZenithWebSite.Models
+namespace ZenithDataLib.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -29,5 +29,9 @@ namespace ZenithWebSite.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<ActivityCategory> ActivityCategories { get; set; }
+        public DbSet<Event> Events { get; set; }
+
     }
 }
