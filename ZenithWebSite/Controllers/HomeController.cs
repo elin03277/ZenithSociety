@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZenithDataLib.Models;
 
 namespace ZenithWebSite.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
-            return View();
+            var events = db.Events.Include(a => a.ActivityCategory);
+            return View(events.ToList());
         }
 
         public ActionResult About()

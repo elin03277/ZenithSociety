@@ -49,9 +49,8 @@ namespace ZenithWebSite.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,6 +63,18 @@ namespace ZenithWebSite.Models
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "Username is required.")]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "First name is required.")]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last name is required.")]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
