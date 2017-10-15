@@ -46,7 +46,7 @@ namespace ZenithWebSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ActiveCategoryId,ActivityDescription,CreationDate")] ActivityCategory activityCategory)
+        public ActionResult Create([Bind(Include = "ActivityCategoryId,ActivityDescription,CreationDate")] ActivityCategory activityCategory)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ZenithWebSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ActiveCategoryId,ActivityDescription,CreationDate")] ActivityCategory activityCategory)
+        public ActionResult Edit([Bind(Include = "ActivityCategoryId,ActivityDescription,CreationDate")] ActivityCategory activityCategory)
         {
             if (ModelState.IsValid)
             {

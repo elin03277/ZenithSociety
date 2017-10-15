@@ -39,7 +39,7 @@ namespace ZenithWebSite.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActiveCategoryId", "ActivityDescription");
+            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActivityCategoryId", "ActivityDescription");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace ZenithWebSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActiveCategoryId", "ActivityDescription", @event.ActivityCategoryId);
+            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActivityCategoryId", "ActivityDescription", @event.ActivityCategoryId);
             return View(@event);
         }
 
@@ -73,7 +73,7 @@ namespace ZenithWebSite.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActiveCategoryId", "ActivityDescription", @event.ActivityCategoryId);
+            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActivityCategoryId", "ActivityDescription", @event.ActivityCategoryId);
             return View(@event);
         }
 
@@ -90,7 +90,7 @@ namespace ZenithWebSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActiveCategoryId", "ActivityDescription", @event.ActivityCategoryId);
+            ViewBag.ActivityCategoryId = new SelectList(db.ActivityCategories, "ActivityCategoryId", "ActivityDescription", @event.ActivityCategoryId);
             return View(@event);
         }
 

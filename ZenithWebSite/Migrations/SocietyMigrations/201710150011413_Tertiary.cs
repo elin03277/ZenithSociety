@@ -3,7 +3,7 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PInitialCreate : DbMigration
+    public partial class Tertiary : DbMigration
     {
         public override void Up()
         {
@@ -11,11 +11,11 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                 "dbo.ActivityCategories",
                 c => new
                     {
-                        ActiveCategoryId = c.String(nullable: false, maxLength: 128),
+                        ActivityCategoryId = c.String(nullable: false, maxLength: 128),
                         ActivityDescription = c.String(),
                         CreationDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.ActiveCategoryId);
+                .PrimaryKey(t => t.ActivityCategoryId);
             
             CreateTable(
                 "dbo.Events",

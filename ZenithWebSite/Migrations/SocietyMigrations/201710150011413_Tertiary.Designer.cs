@@ -7,13 +7,13 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PInitialCreate : IMigrationMetadata
+    public sealed partial class Tertiary : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PInitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Tertiary));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710142326295_PInitialCreate"; }
+            get { return "201710150011413_Tertiary"; }
         }
         
         string IMigrationMetadata.Source

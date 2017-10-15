@@ -197,9 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\SocietyMigrations\201710142326295_PInitialCreate.cs" />
-    <Compile Include="Migrations\SocietyMigrations\201710142326295_PInitialCreate.Designer.cs">
-      <DependentUpon>201710142326295_PInitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\SocietyMigrations\201710150011413_Tertiary.cs" />
+    <Compile Include="Migrations\SocietyMigrations\201710150011413_Tertiary.Designer.cs">
+      <DependentUpon>201710150011413_Tertiary.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SocietyMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -208,6 +208,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ZenithSociety.mdf" />
+    <Content Include="App_Data\ZenithSociety_log.ldf">
+      <DependentUpon>ZenithSociety.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -275,9 +279,7 @@
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -298,8 +300,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\SocietyMigrations\201710142326295_PInitialCreate.resx">
-      <DependentUpon>201710142326295_PInitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\SocietyMigrations\201710150011413_Tertiary.resx">
+      <DependentUpon>201710150011413_Tertiary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
