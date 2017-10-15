@@ -7,13 +7,13 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddUserFirstLastName : IMigrationMetadata
+    public sealed partial class UpdateTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUserFirstLastName));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710151824450_AddUserFirstLastName"; }
+            get { return "201710152151460_UpdateTables"; }
         }
         
         string IMigrationMetadata.Source

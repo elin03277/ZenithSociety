@@ -10,6 +10,7 @@ using ZenithDataLib.Models;
 
 namespace ZenithWebSite.Controllers
 {
+    [Authorize]
     public class ActivityCategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

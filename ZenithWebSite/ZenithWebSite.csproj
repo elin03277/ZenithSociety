@@ -197,9 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.cs" />
-    <Compile Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.Designer.cs">
-      <DependentUpon>201710150238469_PInitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\SocietyMigrations\201710152151460_UpdateTables.cs" />
+    <Compile Include="Migrations\SocietyMigrations\201710152151460_UpdateTables.Designer.cs">
+      <DependentUpon>201710152151460_UpdateTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SocietyMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -208,8 +208,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ZenithSociety.mdf" />
+    <Content Include="App_Data\ZenithSociety_log.ldf">
+      <DependentUpon>ZenithSociety.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Docs\Migrations.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -230,7 +235,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -276,11 +283,6 @@
     <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.resx">
-      <DependentUpon>201710150238469_PInitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
@@ -300,7 +302,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <EmbeddedResource Include="Migrations\SocietyMigrations\201710152151460_UpdateTables.resx">
+      <DependentUpon>201710152151460_UpdateTables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

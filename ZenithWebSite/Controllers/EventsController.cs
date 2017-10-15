@@ -10,6 +10,7 @@ using ZenithDataLib.Models;
 
 namespace ZenithWebSite.Controllers
 {
+    [Authorize]
     public class EventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

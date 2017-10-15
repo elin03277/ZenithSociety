@@ -3,7 +3,7 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PInitialCreate : DbMigration
+    public partial class UpdateTables : DbMigration
     {
         public override void Up()
         {
@@ -61,6 +61,8 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        FirstName = c.String(),
+                        LastName = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),

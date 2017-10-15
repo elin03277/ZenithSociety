@@ -5,5 +5,3 @@ add-migration -ProjectName ZenithWebsite -ConfigurationTypeName ZenithWebSite.Mi
 update-database -ProjectName ZenithWebsite -ConfigurationTypeName ZenithWebSite.Migrations.SocietyMigrations.Configuration
 
 add-migration -ProjectName ZenithWebsite -ConfigurationTypeName ZenithWebSite.Migrations.SocietyMigrations.Configuration "AddUserFirstLastName"
-
-update-database
