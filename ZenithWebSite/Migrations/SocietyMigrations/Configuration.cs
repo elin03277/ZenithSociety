@@ -1,5 +1,7 @@
 namespace ZenithWebSite.Migrations.SocietyMigrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -17,6 +19,9 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
 
         protected override void Seed(ZenithDataLib.Models.ApplicationDbContext context)
         {
+            addDefaultUsers(context);
+            context.SaveChanges();
+
             context.ActivityCategories.AddOrUpdate(a => new {a.ActivityCategoryId, a.ActivityDescription, a.CreationDate },
                 GetActivityCategories().ToArray()
                 );
@@ -27,6 +32,56 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                 );
             context.SaveChanges();
 
+        }
+
+        // Adds an default Admin and Member to the users table.
+        private void addDefaultUsers(ApplicationDbContext context)
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            if (!roleManager.RoleExists("Admin"))
+            {
+                roleManager.Create(new IdentityRole("Admin"));
+            }
+
+            if (!roleManager.RoleExists("Member"))
+            {
+                roleManager.Create(new IdentityRole("Member"));
+            }
+
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            if (userManager.FindByEmail("a@a.a") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "a@a.a",
+                    UserName = "a"
+                };
+
+                var result = userManager.Create(user, "P@$$w0rd");
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Admin");
+                }
+            }
+
+            if(userManager.FindByEmail("m@m.m") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "m@m.m",
+                    UserName = "m"
+                };
+
+                var result = userManager.Create(user, "P@$$w0rd");
+
+                if(result.Succeeded)
+                {
+                    userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Member");
+                }
+            }
         }
 
         private List<ActivityCategory> GetActivityCategories()

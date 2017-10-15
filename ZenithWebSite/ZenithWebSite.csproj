@@ -201,6 +201,10 @@
     <Compile Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.Designer.cs">
       <DependentUpon>201710150238469_PInitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\SocietyMigrations\201710151824450_AddUserFirstLastName.cs" />
+    <Compile Include="Migrations\SocietyMigrations\201710151824450_AddUserFirstLastName.Designer.cs">
+      <DependentUpon>201710151824450_AddUserFirstLastName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\SocietyMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -280,6 +284,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.resx">
       <DependentUpon>201710150238469_PInitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\SocietyMigrations\201710151824450_AddUserFirstLastName.resx">
+      <DependentUpon>201710151824450_AddUserFirstLastName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
