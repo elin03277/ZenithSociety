@@ -1,5 +1,0 @@
-﻿enable-migrations -ContextProjectName ZenithDataLib -StartUpProjectName ZenithDataLib -ContextTypeName ApplicationDbContext -MigrationsDirectory Migrations\SocietyMigrations
-
-add-migration -ProjectName ZenithWebsite -ConfigurationTypeName ZenithWebSite.Migrations.SocietyMigrations.Configuration "PInitialCreate"
-
-update-database -ProjectName ZenithWebsite -ConfigurationTypeName ZenithWebSite.Migrations.SocietyMigrations.Configuration

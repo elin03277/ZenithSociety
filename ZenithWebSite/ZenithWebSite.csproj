@@ -208,10 +208,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ZenithSociety.mdf" />
-    <Content Include="App_Data\ZenithSociety_log.ldf">
-      <DependentUpon>ZenithSociety.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -302,6 +298,9 @@
       <Project>{68bbcf25-b4fe-465e-a98c-505f47783409}</Project>
       <Name>ZenithDataLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
