@@ -22,7 +22,7 @@ namespace ZenithWebSite.Controllers
         }
 
         // GET: Events/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -62,7 +62,7 @@ namespace ZenithWebSite.Controllers
         }
 
         // GET: Events/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -95,7 +95,7 @@ namespace ZenithWebSite.Controllers
         }
 
         // GET: Events/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
