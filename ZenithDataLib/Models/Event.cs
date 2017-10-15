@@ -12,11 +12,14 @@ namespace ZenithDataLib.Models
     {
         [Key]
         public int EventId { get; set; }
+
+        [Display(Name = "Date")]
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public string EnteredBy { get; set; }
         
         [ForeignKey("ActivityCategoryId")]
+        [Display(Name = "Activity")]
         public ActivityCategory ActivityCategory { get; set; }
         public int ActivityCategoryId { get; set; }
         public DateTime CreationDate { get; set; }
