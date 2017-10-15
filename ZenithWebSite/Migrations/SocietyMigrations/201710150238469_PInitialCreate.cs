@@ -3,7 +3,7 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Tertiary : DbMigration
+    public partial class PInitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +11,7 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                 "dbo.ActivityCategories",
                 c => new
                     {
-                        ActivityCategoryId = c.String(nullable: false, maxLength: 128),
+                        ActivityCategoryId = c.Int(nullable: false, identity: true),
                         ActivityDescription = c.String(),
                         CreationDate = c.DateTime(nullable: false),
                     })
@@ -21,16 +21,16 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                 "dbo.Events",
                 c => new
                     {
-                        EventId = c.String(nullable: false, maxLength: 128),
+                        EventId = c.Int(nullable: false, identity: true),
                         DateFrom = c.DateTime(nullable: false),
                         DateTo = c.DateTime(nullable: false),
                         EnteredBy = c.String(),
-                        ActivityCategoryId = c.String(maxLength: 128),
+                        ActivityCategoryId = c.Int(nullable: false),
                         CreationDate = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.EventId)
-                .ForeignKey("dbo.ActivityCategories", t => t.ActivityCategoryId)
+                .ForeignKey("dbo.ActivityCategories", t => t.ActivityCategoryId, cascadeDelete: true)
                 .Index(t => t.ActivityCategoryId);
             
             CreateTable(

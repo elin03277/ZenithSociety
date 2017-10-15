@@ -17,7 +17,7 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
 
         protected override void Seed(ZenithDataLib.Models.ApplicationDbContext context)
         {
-            context.ActivityCategories.AddOrUpdate(a => new { a.ActivityCategoryId, a.ActivityDescription, a.CreationDate },
+            context.ActivityCategories.AddOrUpdate(a => new {a.ActivityCategoryId, a.ActivityDescription, a.CreationDate },
                 GetActivityCategories().ToArray()
                 );
             context.SaveChanges();
@@ -212,7 +212,7 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                     DateTo = new DateTime(2017, 10, 22, 13, 00, 0),
                     EnteredBy = "Eric Lin",
                     ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "BBQ Lunch"),
-                    CreationDate = new DateTime(2017, 10, 22, , 30, 0),
+                    CreationDate = new DateTime(2017, 10, 22, 12, 30, 0),
                     IsActive = true
                 },
                 new Event()

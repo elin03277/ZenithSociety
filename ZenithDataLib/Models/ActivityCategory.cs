@@ -10,7 +10,7 @@ namespace ZenithDataLib.Models
     public class ActivityCategory
     {
         [Key]
-        public string ActivityCategoryId { get; set; }
+        public int ActivityCategoryId { get; set; }
         public string ActivityDescription { get; set; }
         public DateTime CreationDate { get; set; }
     }

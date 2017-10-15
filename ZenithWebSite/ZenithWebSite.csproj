@@ -197,9 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\SocietyMigrations\201710150011413_Tertiary.cs" />
-    <Compile Include="Migrations\SocietyMigrations\201710150011413_Tertiary.Designer.cs">
-      <DependentUpon>201710150011413_Tertiary.cs</DependentUpon>
+    <Compile Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.cs" />
+    <Compile Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.Designer.cs">
+      <DependentUpon>201710150238469_PInitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SocietyMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -279,7 +279,11 @@
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\SocietyMigrations\201710150238469_PInitialCreate.resx">
+      <DependentUpon>201710150238469_PInitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -298,11 +302,6 @@
       <Project>{68bbcf25-b4fe-465e-a98c-505f47783409}</Project>
       <Name>ZenithDataLib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\SocietyMigrations\201710150011413_Tertiary.resx">
-      <DependentUpon>201710150011413_Tertiary.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
