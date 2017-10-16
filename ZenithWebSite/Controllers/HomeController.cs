@@ -18,7 +18,7 @@ namespace ZenithWebSite.Controllers
             DateTime nextMonday = thisMonday.AddDays(7);
 
             var upcomingEvents = db.Events
-                                .Where(e => e.DateFrom >= thisMonday && e.DateFrom < nextMonday)
+                                .Where(e => e.DateFrom >= thisMonday && e.DateFrom < nextMonday && e.IsActive == true)
                                 .OrderBy(e => e.DateFrom)
                                 .Include(e => e.ActivityCategory);
             return View(upcomingEvents.ToList());
