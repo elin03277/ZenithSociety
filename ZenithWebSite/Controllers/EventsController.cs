@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -22,6 +23,7 @@ namespace ZenithWebSite.Controllers
             return View(events.ToList());
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +39,7 @@ namespace ZenithWebSite.Controllers
             return View(@event);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Events/Create
         public ActionResult Create()
         {
@@ -44,13 +47,20 @@ namespace ZenithWebSite.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Events/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,DateFrom,DateTo,EnteredBy,ActivityCategoryId,CreationDate,IsActive")] Event @event)
+        public ActionResult Create([Bind(Include = "EventId,DateFrom,DateTo,ActivityCategoryId")] Event @event)
         {
+            @event.EnteredBy = User.Identity.GetUserName();
+
+            @event.CreationDate = DateTime.Now;
+
+            @event.IsActive = true;
+
             if (ModelState.IsValid)
             {
                 db.Events.Add(@event);
@@ -62,6 +72,7 @@ namespace ZenithWebSite.Controllers
             return View(@event);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -78,6 +89,7 @@ namespace ZenithWebSite.Controllers
             return View(@event);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Events/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -95,6 +107,7 @@ namespace ZenithWebSite.Controllers
             return View(@event);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -110,10 +123,11 @@ namespace ZenithWebSite.Controllers
             return View(@event);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Event @event = db.Events.Find(id);
             db.Events.Remove(@event);

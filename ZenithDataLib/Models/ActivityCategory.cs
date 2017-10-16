@@ -11,7 +11,7 @@ namespace ZenithDataLib.Models
     {
         [Key]
         public int ActivityCategoryId { get; set; }
-        [Display(Name = "Activity")]
+        [Display(Name = "Activity Category")]
         public string ActivityDescription { get; set; }
         [Display(Name = "Creation Date")]
         public DateTime CreationDate { get; set; }
