@@ -2,43 +2,48 @@
 
 @{
     ViewBag.Title = "Home Page";
-
-    DateTime mondayDate = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 1);
-    DateTime day = mondayDate;
 }
 
     <h2>Upcoming Events</h2>
 
     <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DateFrom)
-            </th>
-            <th>
-                Time
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActivityCategory)
-            </th>
-        </tr>
+        @{
+            if (Model.Count() > 0)
+            {
+                DayOfWeek previousDay = Model.ElementAt(0).DateFrom.DayOfWeek;
 
-        @foreach (var item in Model)
-        {
-            var dateFrom = item.DateFrom.ToLongDateString();
-            var dateTo = item.DateTo.ToLongDateString();
-            var timeFrom = item.DateFrom.ToShortTimeString();
-            var timeTo = item.DateTo.ToShortTimeString();
+                for (int i = 0; i < Model.Count(); ++i)
+                {
+                    var item = Model.ElementAt(i);
 
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => dateFrom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => timeFrom) - @Html.DisplayFor(modelItem => timeTo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ActivityCategory.ActivityDescription)
-                </td>
-            </tr>
+                    if(item.DateFrom.DayOfWeek != previousDay || i == 0)
+                    {
+                        <tr class="success">
+                            <th colspan="2">
+                                @item.DateFrom.ToLongDateString()
+                            </th>
+                        </tr>
+                    }
+
+                    var timeFrom = item.DateFrom.ToShortTimeString();
+                    var timeTo = item.DateTo.ToShortTimeString();
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => timeFrom) - @Html.DisplayFor(modelItem => timeTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivityCategory.ActivityDescription)
+                        </td>
+                    </tr>
+
+                    previousDay = Model.ElementAt(i).DateFrom.DayOfWeek;
+                }
+            }
+            else
+            {
+                <tr>No upcoming event</tr>
+            }
+
         }
     </table>

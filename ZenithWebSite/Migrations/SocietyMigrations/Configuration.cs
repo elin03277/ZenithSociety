@@ -278,6 +278,51 @@ namespace ZenithWebSite.Migrations.SocietyMigrations
                     ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "Garage Sale"),
                     CreationDate = new DateTime(2017, 10, 22, 13, 00, 0),
                     IsActive = true
+                },
+                new Event()
+                {
+                    DateFrom = new DateTime(2017, 10, 23, 8, 30, 0),
+                    DateTo = new DateTime(2017, 10, 23, 10, 30, 0),
+                    EnteredBy = "Eric Lin",
+                    ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "Senior's Golf Tournament"),
+                    CreationDate = new DateTime(2017, 10, 17, 8, 30, 0),
+                    IsActive = true
+                },
+                new Event()
+                {
+                    DateFrom = new DateTime(2017, 10, 24, 8, 30, 0),
+                    DateTo = new DateTime(2017, 10, 24, 10, 30, 0),
+                    EnteredBy = "Eric Lin",
+                    ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "Leadership General Assembly Meeting"),
+                    CreationDate = new DateTime(2017, 10, 18, 8, 30, 0),
+                    IsActive = true
+                },
+                new Event()
+                {
+                    DateFrom = new DateTime(2017, 10, 26, 17, 30, 0),
+                    DateTo = new DateTime(2017, 10, 26, 19, 15, 0),
+                    EnteredBy = "Eric Lin",
+                    ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "Youth Bowling Tournament"),
+                    CreationDate = new DateTime(2017, 10, 20, 17, 30, 0),
+                    IsActive = true
+                },
+                new Event()
+                {
+                    DateFrom = new DateTime(2017, 10, 26, 19, 00, 0),
+                    DateTo = new DateTime(2017, 10, 26, 20, 00, 0),
+                    EnteredBy = "Eric Lin",
+                    ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "Young ladies cooking lessons"),
+                    CreationDate = new DateTime(2017, 10, 20, 19, 00, 0),
+                    IsActive = true
+                },
+                new Event()
+                {
+                    DateFrom = new DateTime(2017, 10, 27, 8, 30, 0),
+                    DateTo = new DateTime(2017, 10, 27, 10, 30, 0),
+                    EnteredBy = "Eric Lin",
+                    ActivityCategory = context.ActivityCategories.FirstOrDefault(a => a.ActivityDescription == "Youth craft lessons"),
+                    CreationDate = new DateTime(2017, 10, 21, 8, 30, 0),
+                    IsActive = true
                 }
             };
 

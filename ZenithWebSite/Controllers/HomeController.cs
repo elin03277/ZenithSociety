@@ -14,8 +14,14 @@ namespace ZenithWebSite.Controllers
 
         public ActionResult Index()
         {
-            var events = db.Events.Include(a => a.ActivityCategory);
-            return View(events.ToList());
+            DateTime thisMonday = DateTime.Today.AddDays(((int)(DateTime.Today.DayOfWeek) * -1) + 1);
+            DateTime nextMonday = thisMonday.AddDays(7);
+
+            var upcomingEvents = db.Events
+                                .Where(e => e.DateFrom >= thisMonday && e.DateFrom < nextMonday)
+                                .OrderBy(e => e.DateFrom)
+                                .Include(e => e.ActivityCategory);
+            return View(upcomingEvents.ToList());
         }
 
         public ActionResult About()
