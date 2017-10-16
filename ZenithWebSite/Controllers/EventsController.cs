@@ -95,8 +95,12 @@ namespace ZenithWebSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,DateFrom,DateTo,EnteredBy,ActivityCategoryId,CreationDate,IsActive")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventId,DateFrom,DateTo,ActivityCategoryId,IsActive")] Event @event)
         {
+            @event.EnteredBy = User.Identity.GetUserName();
+
+            @event.CreationDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Entry(@event).State = EntityState.Modified;
