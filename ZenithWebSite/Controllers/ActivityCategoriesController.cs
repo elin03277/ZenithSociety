@@ -21,6 +21,7 @@ namespace ZenithWebSite.Controllers
             return View(db.ActivityCategories.ToList());
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: ActivityCategories/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,19 +37,25 @@ namespace ZenithWebSite.Controllers
             return View(activityCategory);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: ActivityCategories/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: ActivityCategories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ActivityCategoryId,ActivityDescription,CreationDate")] ActivityCategory activityCategory)
+        public ActionResult Create([Bind(Include = "ActivityCategoryId,ActivityDescription")] ActivityCategory activityCategory)
         {
+            
+            activityCategory.CreationDate = DateTime.Now;
+            
+
             if (ModelState.IsValid)
             {
                 db.ActivityCategories.Add(activityCategory);
@@ -59,6 +66,7 @@ namespace ZenithWebSite.Controllers
             return View(activityCategory);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: ActivityCategories/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -74,6 +82,7 @@ namespace ZenithWebSite.Controllers
             return View(activityCategory);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: ActivityCategories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -90,6 +99,7 @@ namespace ZenithWebSite.Controllers
             return View(activityCategory);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: ActivityCategories/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -105,10 +115,11 @@ namespace ZenithWebSite.Controllers
             return View(activityCategory);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: ActivityCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             ActivityCategory activityCategory = db.ActivityCategories.Find(id);
             db.ActivityCategories.Remove(activityCategory);
