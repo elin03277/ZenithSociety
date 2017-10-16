@@ -21,7 +21,7 @@ namespace ZenithDataLib.Models
         public string EnteredBy { get; set; }
         
         [ForeignKey("ActivityCategoryId")]
-        [Display(Name = "Activity")]
+        [Display(Name = "Activity Category")]
         public ActivityCategory ActivityCategory { get; set; }
         public int ActivityCategoryId { get; set; }
         [Display(Name = "Creation Date")]
